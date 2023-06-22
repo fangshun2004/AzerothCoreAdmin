@@ -3,6 +3,7 @@
 ## Author: Based on the work of TrinityAdmin Dev team and MangAdmin Dev Team
 ## Version: 0.1
 ## Notes: This add-on works with AzerothCore-based private servers
+## Notes-zhTW: 這個插件工作于 AzerothCore 的私人服務器
 ## URL: https://github.com/LightDestory/AzerothCoreAdmin
 ## Name: AzerothCoreAdmin
 ## License: GPLv3
@@ -30,6 +31,7 @@ Libraries\FuBarPlugin-2.0\FuBarPlugin-2.0.lua
 Libraries\LibGraph-2.0\LibGraph-2.0.lua
 Locales\enUS.lua
 Locales\strings.lua
+Locales\zhTW.lua
 models.lua
 Commands\declarations\command_keys.lua
 Commands\Commands_Generics.lua
