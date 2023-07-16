@@ -14,76 +14,74 @@
 -- Official repository: https://github.com/LightDestory/AzerothCoreAdmin
 --
 -------------------------------------------------------------------------------------------------------------
-
 -- Initializing dynamic frames with LUA and FrameLib
 -- This script must be listed in the .toc after "MangFrames_SectionTele.lua"
 -- Also some variables are globally taken from MangAdmin.lua
-
 function MangAdmin:CreateLogSection()
-  local transparency = {
-    bg = MangAdmin.db.account.style.transparency.backgrounds,
-    btn = MangAdmin.db.account.style.transparency.buttons,
-    frm = MangAdmin.db.account.style.transparency.frames
-  }
-  local color = {
-    bg = MangAdmin.db.account.style.color.backgrounds,
-    btn = MangAdmin.db.account.style.color.buttons,
-    frm = MangAdmin.db.account.style.color.frames
-  }
+    local transparency = {
+        bg = MangAdmin.db.account.style.transparency.backgrounds,
+        btn = MangAdmin.db.account.style.transparency.buttons,
+        frm = MangAdmin.db.account.style.transparency.frames
+    }
+    local color = {
+        bg = MangAdmin.db.account.style.color.backgrounds,
+        btn = MangAdmin.db.account.style.color.buttons,
+        frm = MangAdmin.db.account.style.color.frames
+    }
 
-  FrameLib:BuildFrame({
-    type = "ScrollingMessageFrame",
-    name = "ma_logframe",
-    group = "log",
-    parent = ma_midframe,
-    texture = {
-      color = {10,10,10,0.7},
-      gradient = {
-        orientation = "horizontal",
-        min = {10,10,10,0.7},
-        max = {10,10,10,0}
-      }
-    },
-    size = {
-      width = 400,
-      height = 234
-    },
-    setpoint = {
-      pos = "TOPLEFT",
-      offX = 10,
-      offY = -10
-    },
-    justify = {
-      h = "LEFT",
-      v = "TOP"
-    },
-    fading = false,
-    scrollMouseWheel = true
-  })
+    FrameLib:BuildFrame({
+        type = "ScrollingMessageFrame",
+        name = "ma_logframe",
+        group = "log",
+        parent = ma_midframe,
+        texture = {
+            color = {10, 10, 10, 0.7},
+            gradient = {
+                orientation = "horizontal",
+                min = {10, 10, 10, 0.7},
+                max = {10, 10, 10, 0}
+            }
+        },
+        size = {
+            width = 400,
+            height = 234
+        },
+        setpoint = {
+            pos = "TOPLEFT",
+            offX = 10,
+            offY = -10
+        },
+        justify = {
+            h = "LEFT",
+            v = "TOP"
+        },
+        fading = false,
+        scrollMouseWheel = true
+    })
 
-  FrameLib:BuildButton({
-    name = "ma_logscrollupbutton",
-    group = "log",
-    parent = ma_midframe,
-    setpoint = {
-      pos = "TOPRIGHT",
-      offX = -10,
-      offY = -10
-    },
-    inherits = "UIPanelScrollUpButtonTemplate",
-    --script = function() ma_logframe:ScrollUp() end
-  })
+    FrameLib:BuildButton({
+        name = "ma_logscrollupbutton",
+        group = "log",
+        parent = ma_midframe,
+        setpoint = {
+            pos = "TOPRIGHT",
+            offX = -10,
+            offY = -10
+        },
+        inherits = "UIPanelScrollUpButtonTemplate"
+        -- script = function() ma_logframe:ScrollUp() end
+    })
 
-  FrameLib:BuildButton({
-    name = "ma_logscrolldownbutton",
-    group = "log",
-    parent = ma_midframe,
-    setpoint = {
-      pos = "BOTTOMRIGHT",
-      offX = -10,
-      offY = 10
-    },
-    inherits = "UIPanelScrollDownButtonTemplate",
-    --script = function() ma_logframe:ScrollDown() end
-  })
+    FrameLib:BuildButton({
+        name = "ma_logscrolldownbutton",
+        group = "log",
+        parent = ma_midframe,
+        setpoint = {
+            pos = "BOTTOMRIGHT",
+            offX = -10,
+            offY = 10
+        },
+        inherits = "UIPanelScrollDownButtonTemplate"
+        -- script = function() ma_logframe:ScrollDown() end
+    })
 end

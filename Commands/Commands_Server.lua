@@ -14,34 +14,33 @@
 -- Official repository: https://github.com/LightDestory/AzerothCoreAdmin
 --
 -------------------------------------------------------------------------------------------------------------
-
 function Announce(value)
-  MangAdmin:ChatMsg(".announce "..value)
-  MangAdmin:LogAction("Announced message: "..value)
+    MangAdmin:ChatMsg(".announce " .. value)
+    MangAdmin:LogAction("Announced message: " .. value)
 end
 
 function Shutdown(value)
-  if value == "" then
-    MangAdmin:ChatMsg(".server shutdown 0")
-    MangAdmin:LogAction("Shut down server instantly.")
-  else
-    MangAdmin:ChatMsg(".server shutdown "..value)
-    MangAdmin:LogAction("Shut down server in "..value.." seconds.")
-  end
+    if value == "" then
+        MangAdmin:ChatMsg(".server shutdown 0")
+        MangAdmin:LogAction("Shut down server instantly.")
+    else
+        MangAdmin:ChatMsg(".server shutdown " .. value)
+        MangAdmin:LogAction("Shut down server in " .. value .. " seconds.")
+    end
 end
 
 function ReloadTable(tablename)
-  if not (tablename == "") then
-    MangAdmin:ChatMsg(".reload "..tablename)
-    if tablename == "all" then
-      MangAdmin:LogAction("Reloaded all reloadable TrinityCore database tables.")
-    else
-      MangAdmin:LogAction("Reloaded the table "..tablename..".")
+    if not (tablename == "") then
+        MangAdmin:ChatMsg(".reload " .. tablename)
+        if tablename == "all" then
+            MangAdmin:LogAction("Reloaded all reloadable TrinityCore database tables.")
+        else
+            MangAdmin:LogAction("Reloaded the table " .. tablename .. ".")
+        end
     end
-  end
 end
 
 function ReloadScripts()
-  MangAdmin:ChatMsg(".reload smart_scripts")
-  MangAdmin:LogAction("Reload Smart Scripts.")
+    MangAdmin:ChatMsg(".reload smart_scripts")
+    MangAdmin:LogAction("Reload Smart Scripts.")
 end

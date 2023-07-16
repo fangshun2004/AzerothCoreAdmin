@@ -522,7 +522,8 @@ function MangAdmin:TogglePopup(value, param)
       ma_searchbutton:SetText(Locale["ma_Reload"])
       ma_searchbutton:SetScript("OnClick", function() self:LoadTickets() end)
       ma_resetsearchbutton:SetText(Locale["ma_LoadMore"])
-      ma_resetsearchbutton:SetScript("OnClick", function() MangAdmin.db.account.tickets.loading = true; self:LoadTickets(MangAdmin.db.account.tickets.count) end)]] --
+      ma_resetsearchbutton:SetScript("OnClick", function() MangAdmin.db.account.tickets.loading = true; self:LoadTickets(MangAdmin.db.account.tickets.count) end)]]
+            --
         end
     elseif value == "favorites" then
         self:SearchReset()
@@ -1477,7 +1478,6 @@ function MangAdmin:OID_Setting_Start_Read()
 end
 
 function MangAdmin:OID_Setting_Write(num, val)
-
     if num == 0 then
         -- GUID
         mang_OID_guid = val
@@ -2181,7 +2181,7 @@ function MangAdmin:InitDropDowns()
         --      {"Deutsch","deDE"},
         --      {"Dutch","nlNL"},
         {"English", "enUS"}, --      {"Spanish","esES"},
-        {"TChinese", "zhTW"} --      {"Finnish","fiFI"},
+        {"繁體中文", "zhTW"} --      {"Finnish","fiFI"},
         --      {"Français","frFR"},
         --      {"Magyar","huHU"},
         --      {"Italiano","itIT"},
@@ -2211,7 +2211,6 @@ function MangAdmin:InitDropDowns()
     UIDropDownMenu_Initialize(ma_languagedropdown, LangDropDownInitialize)
     UIDropDownMenu_SetWidth(ma_languagedropdown, 100)
     UIDropDownMenu_SetButtonWidth(ma_languagedropdown, 20)
-
 end
 
 function MangAdmin:InitSliders()
@@ -2464,7 +2463,6 @@ function PopupScrollUpdate()
                 MangAdmin:NoResults("favorites")
             end
         end
-
     elseif MangAdmin.db.char.requests.itemset or MangAdmin.db.char.requests.favitemset then -- get itemsets
         local count = 0
         if MangAdmin.db.char.requests.itemset then
@@ -2541,7 +2539,6 @@ function PopupScrollUpdate()
                 MangAdmin:NoResults("favorites")
             end
         end
-
     elseif MangAdmin.db.char.requests.quest or MangAdmin.db.char.requests.favquest then -- get quests
         local count = 0
         if MangAdmin.db.char.requests.quest then
@@ -2618,7 +2615,6 @@ function PopupScrollUpdate()
                 MangAdmin:NoResults("favorites")
             end
         end
-
     elseif MangAdmin.db.char.requests.creature or MangAdmin.db.char.requests.favcreature then -- get creatures
         local count = 0
         if MangAdmin.db.char.requests.creature then
@@ -2695,7 +2691,6 @@ function PopupScrollUpdate()
                 MangAdmin:NoResults("favorites")
             end
         end
-
     elseif MangAdmin.db.char.requests.spell or MangAdmin.db.char.requests.favspell then -- get spells
         local count = 0
         if MangAdmin.db.char.requests.spell then
@@ -2775,7 +2770,6 @@ function PopupScrollUpdate()
                 MangAdmin:NoResults("favorites")
             end
         end
-
     elseif MangAdmin.db.char.requests.skill or MangAdmin.db.char.requests.favskill then -- get skills
         local count = 0
         if MangAdmin.db.char.requests.skill then
@@ -2852,7 +2846,6 @@ function PopupScrollUpdate()
                 MangAdmin:NoResults("favorites")
             end
         end
-
     elseif MangAdmin.db.char.requests.object or MangAdmin.db.char.requests.favobject then -- get objects
         local count = 0
         if MangAdmin.db.char.requests.object then
@@ -2929,7 +2922,6 @@ function PopupScrollUpdate()
                 MangAdmin:NoResults("favorites")
             end
         end
-
     elseif MangAdmin.db.char.requests.tele or MangAdmin.db.char.requests.favtele then -- get teles
         local count = 0
         if MangAdmin.db.char.requests.tele then
@@ -3005,7 +2997,6 @@ function PopupScrollUpdate()
                 MangAdmin:NoResults("favorites")
             end
         end
-
     else
         MangAdmin:NoResults("search")
     end
@@ -3098,7 +3089,7 @@ function MangAdmin:InitCheckButtons()
     ma_showchatoutputbutton:SetChecked(self.db.account.style.showchat)
     local dp = MangAdmin.db.account.style.delayparam
     if dp == Nil or dp == "" then
-        dp = "4000"
+        dp = "8000"
     end
     ma_delayparam:SetText(dp)
 end

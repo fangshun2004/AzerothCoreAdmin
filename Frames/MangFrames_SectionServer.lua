@@ -78,7 +78,7 @@ function MangAdmin:CreateServerSection()
         end
         local down, up, lag = GetNetStats();
         g:AddBar(lag)
-        ma_lagmetertext:SetText("^Server Latency: " .. lag .. " ms")
+        ma_lagmetertext:SetText(Locale["Ser_Server_Latency"] .. lag .. " ms")
         f.NextUpdate = f.NextUpdate + 1
     end)
     f:Show()
@@ -173,7 +173,7 @@ function MangAdmin:CreateServerSection()
             offX = -10,
             offY = -10
         },
-        text = "Reload Table"
+        text = Locale["Ser_Reload_Table"]
     })
 
     FrameLib:BuildButton({
@@ -193,7 +193,7 @@ function MangAdmin:CreateServerSection()
             offX = -10,
             offY = -38
         },
-        text = "Reload Scripts"
+        text = Locale["Ser_Reload_Scripts"]
     })
 
     FrameLib:BuildFrame({
@@ -256,7 +256,7 @@ function MangAdmin:CreateServerSection()
         name = "ma_lagmetertext2",
         group = "server",
         parent = ma_midframe,
-        text = "^Update Diff:",
+        text = Locale["Ser_Update_Diff"],
         setpoint = {
             pos = "TOPLEFT",
             offX = 170,
@@ -309,5 +309,4 @@ function MangAdmin:CreateServerSection()
         x.NextUpdate = x.NextUpdate + 1
     end)
     x:Show()
-
 end

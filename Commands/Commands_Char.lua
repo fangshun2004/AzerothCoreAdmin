@@ -24,8 +24,7 @@
     [GENERICS_command] = "command",
     [GENERICS_message] = "messageID"
   }
-]]
-CHAR_genericCommands = {
+]] CHAR_genericCommands = {
     [GENERICS_parametersGet] = function()
         return CHAR_parameterInput:GetText()
     end,
@@ -326,7 +325,7 @@ CHAR_genericCommands = {
         [GENERICS_isTargetCheckNeeded] = true,
         [GENERICS_command] = ".reset ",
         [GENERICS_message] = "logCHAR_reset"
-    },
+    }
 }
 -- Delete
 --
@@ -354,18 +353,18 @@ end
 
 function CharModelZoomIn()
     ma_modelframe:SetCamera(0)
-    --ma_modelframe:SetModelScale(ma_modelframe:GetModelScale() + .1)
-    --ma_modelframe:SetPosition(1,ma_modelframe:GetModelScale()*3,0)
-    --ma_modelframe:RefreshUnit()
+    -- ma_modelframe:SetModelScale(ma_modelframe:GetModelScale() + .1)
+    -- ma_modelframe:SetPosition(1,ma_modelframe:GetModelScale()*3,0)
+    -- ma_modelframe:RefreshUnit()
 end
 
 function CharModelZoomOut()
     ma_modelframe:SetCamera(1)
     ma_modelframe:RefreshUnit()
     -- ma_modelframe:SetCamera(2)
-    --ma_modelframe:SetModelScale(ma_modelframe:GetModelScale() * .5)
-    --ma_modelframe:SetPosition(0,0,0)
-    --ma_modelframe:RefreshUnit()
+    -- ma_modelframe:SetModelScale(ma_modelframe:GetModelScale() * .5)
+    -- ma_modelframe:SetPosition(0,0,0)
+    -- ma_modelframe:RefreshUnit()
 end
 
 function MangAdminModelOnUpdate(elapsedTime)
@@ -402,7 +401,9 @@ function teleportToJail(jailCommand)
         return
     end
     MangAdmin:ChatMsg(string.gsub(command[GENERICS_command], "_C_", characterer))
-    MangAdmin:LogAction(genericLogGenerator(command[GENERICS_message], { ['value'] = character }))
+    MangAdmin:LogAction(genericLogGenerator(command[GENERICS_message], {
+        ['value'] = character
+    }))
 end
 
 function LearnAndUnlearnSpell(isLearn, value)
@@ -428,7 +429,7 @@ function LearnAndUnlearnSpell(isLearn, value)
             MangAdmin:LogAction(log .. " all defaults to " .. player .. ".")
         elseif value == "all_myclass" then
             MangAdmin:ChatMsg(command .. " all my class")
-            MangAdmin:LogAction(log .. " all spells available to the "  .. "-class to " .. player .. ".")
+            MangAdmin:LogAction(log .. " all spells available to the " .. "-class to " .. player .. ".")
         else
             MangAdmin:ChatMsg(command .. " " .. value)
             MangAdmin:LogAction(log .. " spell " .. value .. " to " .. player .. ".")
@@ -515,27 +516,16 @@ end
 function LearnPresetDropDownInitialize()
     local level = 1
     local info = UIDropDownMenu_CreateInfo()
-    local buttons = {
-        { Locale["labelCHAR_languageClass"], "all_lang" },
-        { Locale["labelCHAR_defaultClass"], "all_default" },
-        { Locale["labelCHAR_myClass"], "all_myclass" },
-        { Locale["labelCHAR_craftClass"], "all_crafts" },
-        { Locale["labelCHAR_GMClass"], "all_gm" },
-        { Locale["labelCHAR_languageCommon"], "668" },
-        { Locale["labelCHAR_languageOrcish"], "669" },
-        { Locale["labelCHAR_languageTaurahe"], "670" },
-        { Locale["labelCHAR_languageDarnassian"], "671" },
-        { Locale["labelCHAR_languageDwarven"], "672" },
-        { Locale["labelCHAR_languageThalassian"], "813" },
-        { Locale["labelCHAR_languageDemon"], "815" },
-        { Locale["labelCHAR_languageDraconic"], "814" },
-        { Locale["labelCHAR_languageTitan"], "816" },
-        { Locale["labelCHAR_languageOld"], "817" },
-        { Locale["labelCHAR_languageGnomish"], "7340" },
-        { Locale["labelCHAR_languageTroll"], "7341" },
-        { Locale["labelCHAR_languageGutterspeak"], "17737" },
-        { Locale["labelCHAR_languageDraenei"], "29932" }
-    }
+    local buttons = {{Locale["labelCHAR_languageClass"], "all_lang"}, {Locale["labelCHAR_defaultClass"], "all_default"},
+                     {Locale["labelCHAR_myClass"], "all_myclass"}, {Locale["labelCHAR_craftClass"], "all_crafts"},
+                     {Locale["labelCHAR_GMClass"], "all_gm"}, {Locale["labelCHAR_languageCommon"], "668"},
+                     {Locale["labelCHAR_languageOrcish"], "669"}, {Locale["labelCHAR_languageTaurahe"], "670"},
+                     {Locale["labelCHAR_languageDarnassian"], "671"}, {Locale["labelCHAR_languageDwarven"], "672"},
+                     {Locale["labelCHAR_languageThalassian"], "813"}, {Locale["labelCHAR_languageDemon"], "815"},
+                     {Locale["labelCHAR_languageDraconic"], "814"}, {Locale["labelCHAR_languageTitan"], "816"},
+                     {Locale["labelCHAR_languageOld"], "817"}, {Locale["labelCHAR_languageGnomish"], "7340"},
+                     {Locale["labelCHAR_languageTroll"], "7341"}, {Locale["labelCHAR_languageGutterspeak"], "17737"},
+                     {Locale["labelCHAR_languageDraenei"], "29932"}}
     for k, v in pairs(buttons) do
         info.text = v[1]
         info.value = v[2]
@@ -554,28 +544,23 @@ end
 function ModifyDropDownInitialize()
     local level = 1
     local info = UIDropDownMenu_CreateInfo()
-    local buttons = {
-        { Locale["labelCHAR_modifyAllSpeedsOption"], "aspeed" },
-        { Locale["labelCHAR_modifyArenaOption"], "arena" },
-        { Locale["labelCHAR_modifyBackWalkOption"], "bwalk" },
-        { Locale["labelCHAR_modifyDrunkOption"], "drunk" },
-        { Locale["labelCHAR_modifyEnergyOption"], "energy" },
-        { Locale["labelCHAR_modifyFlySpeedOption"], "fly" },
-        { Locale["labelCHAR_modifyGenderOption"], "gender" },
-        { Locale["labelCHAR_modifyHealthPointsOption"], "health" },
-        { Locale["labelCHAR_modifyHonorOption"], "honor" },
-        { Locale["labelCHAR_modifyLevelUPOption"], "levelup" },
-        { Locale["labelCHAR_modifyLevelDownOption"], "leveldown" },
-        { Locale["labelCHAR_modifyManaOption"], "mana" },
-        { Locale["labelCHAR_modifyMoneyOption"], "money" },
-        { Locale["labelCHAR_modifyMountSpeedOption"], "mount" },
-        { Locale["labelCHAR_modifyPhaseOption"], "phase" },
-        { Locale["labelCHAR_modifyRageOption"], "rage" },
-        { Locale["labelCHAR_modifyRunicPowerOption"], "runicpower" },
-        { Locale["labelCHAR_modifyStandSateOption"], "standstate" },
-        { Locale["labelCHAR_modifySwimSpeedOption"], "swim" },
-        { Locale["labelCHAR_resetTalentsOption"], "tp" }
-    }
+    local buttons = {{Locale["labelCHAR_modifyAllSpeedsOption"], "aspeed"},
+                     {Locale["labelCHAR_modifyArenaOption"], "arena"},
+                     {Locale["labelCHAR_modifyBackWalkOption"], "bwalk"},
+                     {Locale["labelCHAR_modifyDrunkOption"], "drunk"},
+                     {Locale["labelCHAR_modifyEnergyOption"], "energy"},
+                     {Locale["labelCHAR_modifyFlySpeedOption"], "fly"},
+                     {Locale["labelCHAR_modifyGenderOption"], "gender"},
+                     {Locale["labelCHAR_modifyHealthPointsOption"], "health"},
+                     {Locale["labelCHAR_modifyHonorOption"], "honor"},
+                     {Locale["labelCHAR_modifyLevelUPOption"], "levelup"},
+                     {Locale["labelCHAR_modifyLevelDownOption"], "leveldown"},
+                     {Locale["labelCHAR_modifyManaOption"], "mana"}, {Locale["labelCHAR_modifyMoneyOption"], "money"},
+                     {Locale["labelCHAR_modifyMountSpeedOption"], "mount"},
+                     {Locale["labelCHAR_modifyPhaseOption"], "phase"}, {Locale["labelCHAR_modifyRageOption"], "rage"},
+                     {Locale["labelCHAR_modifyRunicPowerOption"], "runicpower"},
+                     {Locale["labelCHAR_modifyStandSateOption"], "standstate"},
+                     {Locale["labelCHAR_modifySwimSpeedOption"], "swim"}, {Locale["labelCHAR_resetTalentsOption"], "tp"}}
     for k, v in pairs(buttons) do
         info.text = v[1]
         info.value = v[2]
@@ -594,13 +579,9 @@ end
 function ResetDropDownInitialize()
     local level = 1
     local info = UIDropDownMenu_CreateInfo()
-    local buttons = {
-        { Locale["labelCHAR_resetHonorOption"], "honor" },
-        { Locale["labelCHAR_resetLevelOption"], "level" },
-        { Locale["labelCHAR_resetSpellsOption"], "spells" },
-        { Locale["labelCHAR_resetStatsOption"], "stats" },
-        { Locale["labelCHAR_resetTalentsOption"], "talents" }
-    }
+    local buttons = {{Locale["labelCHAR_resetHonorOption"], "honor"}, {Locale["labelCHAR_resetLevelOption"], "level"},
+                     {Locale["labelCHAR_resetSpellsOption"], "spells"}, {Locale["labelCHAR_resetStatsOption"], "stats"},
+                     {Locale["labelCHAR_resetTalentsOption"], "talents"}}
     for k, v in pairs(buttons) do
         info.text = v[1]
         info.value = v[2]
