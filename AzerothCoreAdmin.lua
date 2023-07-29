@@ -207,7 +207,7 @@ function MangAdmin:OnInitialize()
     self:SetLanguage()
     self:CreateFrames()
     self:RegisterChatCommand(Locale["inLineCommands"], self.consoleOpts) -- this registers the chat commands
-    self:InitButtons() -- this prepares the actions and tooltips of nearly all MangAdmin buttons
+    self:InitButtons()                                                   -- this prepares the actions and tooltips of nearly all MangAdmin buttons
     InitControls()
     self:SearchReset()
     MangAdmin.db.account.buffer.who = {}
@@ -668,10 +668,10 @@ function MangAdmin:AddMessage(frame, text, r, g, b, id)
             if gettingGOBinfo == 1 then
                 ma_gobtargetinfo:SetText("")
                 ma_gobtargetinfo:SetText(ma_gobtargetinfo:GetText() .. "|cffffffff" ..
-                                             string.gsub(text, ']', ']\n|cffffffff'))
+                    string.gsub(text, ']', ']\n|cffffffff'))
             else
                 ma_gobtargetinfo:SetText(ma_gobtargetinfo:GetText() .. "\n|cffffffff" ..
-                                             string.gsub(text, ']', ']\n|cffffffff'))
+                    string.gsub(text, ']', ']\n|cffffffff'))
             end
             gettingGOBinfo = gettingGOBinfo + 1
             if gettingGOBinfo >= 7 then
@@ -960,11 +960,11 @@ function MangAdmin:AddMessage(frame, text, r, g, b, id)
                 end
                 -- table.insert(self.db.account.buffer.tpinfo, {char = {pStatus = status, pGuid = guid, pAcc = account, pId = id, pLevel = level, pIp = ip}})
                 ma_tpinfo_text:SetText(ma_tpinfo_text:GetText() .. Locale["ma_TicketsInfoPlayer"] .. char .. " (" ..
-                                           guid .. ")\n" .. Locale["ma_TicketsInfoStatus"] .. status .. "\n" ..
-                                           Locale["ma_TicketsInfoAccount"] .. account .. " (" .. id .. ")\n" ..
-                                           Locale["ma_TicketsInfoAccLevel"] .. level .. "\n" ..
-                                           Locale["ma_TicketsInfoLastIP"] .. ip .. "\n" ..
-                                           Locale["ma_TicketsInfoLatency"] .. latency)
+                    guid .. ")\n" .. Locale["ma_TicketsInfoStatus"] .. status .. "\n" ..
+                    Locale["ma_TicketsInfoAccount"] .. account .. " (" .. id .. ")\n" ..
+                    Locale["ma_TicketsInfoAccLevel"] .. level .. "\n" ..
+                    Locale["ma_TicketsInfoLastIP"] .. ip .. "\n" ..
+                    Locale["ma_TicketsInfoLatency"] .. latency)
                 catchedSth = true
                 output = MangAdmin.db.account.style.showchat
             end
@@ -974,7 +974,7 @@ function MangAdmin:AddMessage(frame, text, r, g, b, id)
             if self.db.char.requests.tpinfo then
                 ma_tpinfo_text:SetText(
                     ma_tpinfo_text:GetText() .. "\n" .. Locale["ma_TicketsInfoPlayedTime"] .. played .. "\n" ..
-                        Locale["ma_TicketsInfoLevel"] .. level .. "\n" .. Locale["ma_TicketsInfoMoney"] .. money)
+                    Locale["ma_TicketsInfoLevel"] .. level .. "\n" .. Locale["ma_TicketsInfoMoney"] .. money)
                 catchedSth = true
                 output = MangAdmin.db.account.style.showchat
                 self.db.char.requests.tpinfo = false
@@ -1107,9 +1107,9 @@ function MangAdmin:AddMessage(frame, text, r, g, b, id)
         for charname, charguid, account, accountid, email, gmlvl, lastip, lastlogin, latency in string.gmatch(text,
             Strings["ma_GmatchAccountInfo"]) do
             ma_whodetail:SetText("|c00ff00ffCharacter:|r" .. charname .. " |cffffffff(" .. charguid .. ")|r\n" ..
-                                     "|c00ff0000Acct:|r|cffffffff" .. account .. " (" .. accountid .. ")|r\n" ..
-                                     "|c00ff0000IP:|r|cffffffff" .. lastip .. "|r\n" .. "|c00ff0000Login:|r|cffffffff" ..
-                                     lastlogin .. "|r\n" .. "|c00ff0000Latency:|r|cffffffff" .. latency .. "ms|r\n")
+                "|c00ff0000Acct:|r|cffffffff" .. account .. " (" .. accountid .. ")|r\n" ..
+                "|c00ff0000IP:|r|cffffffff" .. lastip .. "|r\n" .. "|c00ff0000Login:|r|cffffffff" ..
+                lastlogin .. "|r\n" .. "|c00ff0000Latency:|r|cffffffff" .. latency .. "ms|r\n")
             catchedSth = true
             output = MangAdmin.db.account.style.showchat
         end
@@ -1117,9 +1117,9 @@ function MangAdmin:AddMessage(frame, text, r, g, b, id)
         for race, class, playedtime, level, money in string.gmatch(text, Strings["ma_GmatchAccountInfo2"]) do
             -- self:ChatMsg("Matched Who")
             ma_whodetail2:SetText("|c00ff0000Race:|r|cffffffff" .. race .. "|r\n" .. "|c00ff0000Class|r|cffffffff" ..
-                                      class .. "|r\n" .. "|c00ff0000Level:|r|cffffffff" .. level .. "|r\n" ..
-                                      "|c00ff0000Money:|r|cffffffff" .. money .. "|r\n" ..
-                                      "|c00ff0000Played Time:|r|cffffffff" .. playedtime .. "|r\n")
+                class .. "|r\n" .. "|c00ff0000Level:|r|cffffffff" .. level .. "|r\n" ..
+                "|c00ff0000Money:|r|cffffffff" .. money .. "|r\n" ..
+                "|c00ff0000Played Time:|r|cffffffff" .. playedtime .. "|r\n")
             catchedSth = true
             output = MangAdmin.db.account.style.showchat
         end
@@ -1287,12 +1287,12 @@ function MangAdmin:SetSkill(value, skill, maxskill)
         if type(value) == "string" then
             self:ChatMsg(".setskill " .. value .. " " .. skill .. " " .. maxskill)
             self:LogAction("Set skill " .. value .. " of " .. player .. " to " .. skill .. " with a maximum of " ..
-                               maxskill .. ".")
+                maxskill .. ".")
         elseif type(value) == "table" then
             for k, v in pairs(value) do
                 self:ChatMsg(".setskill " .. v .. " " .. skill .. " " .. maxskill)
                 self:LogAction("Set skill " .. v .. " of " .. player .. " to " .. skill .. " with a maximum of " ..
-                                   maxskill .. ".")
+                    maxskill .. ".")
             end
         end
     else
@@ -1550,7 +1550,7 @@ end
 
 function MangAdmin:UpdateMailBytesLeft()
     local bleft = 246 - strlen(ma_searcheditbox:GetText()) - strlen(ma_var1editbox:GetText()) -
-                      strlen(ma_maileditbox:GetText())
+        strlen(ma_maileditbox:GetText())
     if bleft >= 0 then
         ma_lookupresulttext:SetText(Locale["ma_MailBytesLeft"] .. "|cff00ff00" .. bleft .. "|r")
     else
@@ -2039,16 +2039,16 @@ function MangAdmin:InitButtons()
     self:PrepareScript(ma_inforefreshbutton, nil, function()
         MangAdmin:ChatMsg(".server info")
     end)
-    self:PrepareScript(ma_frmtrslider, Locale["tt_FrmTrSlider"], {{"OnMouseUp", function()
+    self:PrepareScript(ma_frmtrslider, Locale["tt_FrmTrSlider"], { { "OnMouseUp", function()
         MangAdmin:ChangeTransparency("frames")
-    end}, {"OnValueChanged", function()
+    end }, { "OnValueChanged", function()
         ma_frmtrsliderText:SetText(string.format("%.2f", ma_frmtrslider:GetValue()))
-    end}})
-    self:PrepareScript(ma_btntrslider, Locale["tt_BtnTrSlider"], {{"OnMouseUp", function()
+    end } })
+    self:PrepareScript(ma_btntrslider, Locale["tt_BtnTrSlider"], { { "OnMouseUp", function()
         MangAdmin:ChangeTransparency("buttons")
-    end}, {"OnValueChanged", function()
+    end }, { "OnValueChanged", function()
         ma_btntrsliderText:SetText(string.format("%.2f", ma_btntrslider:GetValue()))
-    end}})
+    end } })
     self:PrepareScript(ma_mm_revivebutton, nil, function()
         SendChatMessage(".revive", "GUILD", nil, nil)
     end)
@@ -2060,18 +2060,24 @@ function MangAdmin:InitDropDowns()
         local level = 1
         local info = UIDropDownMenu_CreateInfo()
         local buttons = { -- data taken from source code
-        {"All", "all"}, {"All gossips", "all gossips"}, {"All item", "all item"}, {"All locales", "all locales"},
-        {"All loot", "all loot"}, {"All_npc", "all npc"}, {"All_quest", "all quest"}, {"All scripts", "all scripts"},
-        {"All spell", "all spell"}, {"areatrigger_tavern", "areatrigger_tavern"},
-        {"areatrigger_teleport", "areatrigger_teleport"}, {"autobroadcast", "autobroadcast"}, {"command", "command"},
-        {"conditions", "conditions"}, {"config", "config"}, {"creature_linked_respawn", "creature_linked_respawn"},
-        {"creature_onkill_reputation", "creature_onkill_reputation"}, {"creature_template", "creature_template"},
-        {"creature_text", "creature_text"}, {"disables", "disables"}, {"game_graveyard_zone", "game_graveyard_zone"},
-        {"game_tele", "game_tele"}, {"gm_tickets", "gm_tickets"}, {"item_set_names", "item_set_names"},
-        {"lfg_dungeon_encounters", "lfg_dungeon_encounters"}, {"lfg_dungeon_rewards", "lfg_dungeon_rewards"},
-        {"reserved_name", "reserved_name"}, {"skill_discovery_template", "skill_discovery_template"},
-        {"skill_extra_item_template", "skill_extra_item_template"},
-        {"skill_fishing_base_level", "skill_fishing_base_level"}, {"trinity_string", "trinity_string"}}
+            { "All",         "all" }, { "All gossips", "all gossips" }, { "All item", "all item" },
+            { "All locales", "all locales" },
+            { "All loot",    "all loot" }, { "All_npc", "all npc" }, { "All_quest", "all quest" },
+            { "All scripts", "all scripts" },
+            { "All spell",   "all spell" }, { "areatrigger_tavern", "areatrigger_tavern" },
+            { "areatrigger_teleport", "areatrigger_teleport" }, { "autobroadcast", "autobroadcast" },
+            { "command",              "command" },
+            { "conditions",           "conditions" }, { "config", "config" },
+            { "creature_linked_respawn",    "creature_linked_respawn" },
+            { "creature_onkill_reputation", "creature_onkill_reputation" }, { "creature_template", "creature_template" },
+            { "creature_text",       "creature_text" }, { "disables", "disables" },
+            { "game_graveyard_zone", "game_graveyard_zone" },
+            { "game_tele",           "game_tele" }, { "gm_tickets", "gm_tickets" },
+            { "item_set_names", "item_set_names" },
+            { "lfg_dungeon_encounters", "lfg_dungeon_encounters" }, { "lfg_dungeon_rewards", "lfg_dungeon_rewards" },
+            { "reserved_name",          "reserved_name" }, { "skill_discovery_template", "skill_discovery_template" },
+            { "skill_extra_item_template", "skill_extra_item_template" },
+            { "skill_fishing_base_level",  "skill_fishing_base_level" }, { "trinity_string", "trinity_string" } }
         for k, v in pairs(buttons) do
             info.text = v[1]
             info.value = v[2]
@@ -2093,9 +2099,9 @@ function MangAdmin:InitDropDowns()
     local function WeatherDropDownInitialize()
         local level = 1
         local info = UIDropDownMenu_CreateInfo()
-        local buttons = {{Locale["ma_WeatherFine"], "0 0"}, {Locale["ma_WeatherFog"], "0 1"},
-                         {Locale["ma_WeatherRain"], "1 1"}, {Locale["ma_WeatherSnow"], "2 1"},
-                         {Locale["ma_WeatherSand"], "3 1"}}
+        local buttons = { { Locale["ma_WeatherFine"], "0 0" }, { Locale["ma_WeatherFog"], "0 1" },
+            { Locale["ma_WeatherRain"], "1 1" }, { Locale["ma_WeatherSnow"], "2 1" },
+            { Locale["ma_WeatherSand"], "3 1" } }
         for k, v in pairs(buttons) do
             info.text = v[1]
             info.value = v[2]
@@ -2118,13 +2124,13 @@ function MangAdmin:InitDropDowns()
     local function NpcEmoteDropDownInitialize()
         local level = 1
         local info = UIDropDownMenu_CreateInfo()
-        local buttons = {{"None", "0"}, {"Talk", "1"}, {"Bow", "2"}, {"Wave", "3"}, {"Cheer", "4"},
-                         {"Exclamation", "5"}, {"Question", "6"}, {"Eat", "7"}, {"Dance", "10"}, {"Laugh", "11"},
-                         {"Sleep", "12"}, {"Rude", "14"}, {"Roar", "15"}, {"Kneel", "16"}, {"Kiss", "17"},
-                         {"Cry", "18"}, {"Chicken", "19"}, {"Beg", "20"}, {"Applaud", "21"}, {"Shout", "22"},
-                         {"Flex", "23"}, {"Shy", "24"}, {"Point", "25"}, {"Stand", "26"}, {"ReadyUnarmed", "27"},
-                         {"Work", "28"}, {"Point", "29"}, {"None", "30"}, {"Wound", "33"}, {"WoundCritical", "34"},
-                         {"AttackUnarmed", "35"}, {"Attack1H", "36"}, {"Attack2H", "37"}}
+        local buttons = { { "None", "0" }, { "Talk", "1" }, { "Bow", "2" }, { "Wave", "3" }, { "Cheer", "4" },
+            { "Exclamation", "5" }, { "Question", "6" }, { "Eat", "7" }, { "Dance", "10" }, { "Laugh", "11" },
+            { "Sleep", "12" }, { "Rude", "14" }, { "Roar", "15" }, { "Kneel", "16" }, { "Kiss", "17" },
+            { "Cry",   "18" }, { "Chicken", "19" }, { "Beg", "20" }, { "Applaud", "21" }, { "Shout", "22" },
+            { "Flex", "23" }, { "Shy", "24" }, { "Point", "25" }, { "Stand", "26" }, { "ReadyUnarmed", "27" },
+            { "Work", "28" }, { "Point", "29" }, { "None", "30" }, { "Wound", "33" }, { "WoundCritical", "34" },
+            { "AttackUnarmed", "35" }, { "Attack1H", "36" }, { "Attack2H", "37" } }
         for k, v in pairs(buttons) do
             info.text = v[1]
             info.value = v[2]
@@ -2147,14 +2153,15 @@ function MangAdmin:InitDropDowns()
     local function NpcEmoteDropDownInitialize()
         local level = 1
         local info = UIDropDownMenu_CreateInfo()
-        local buttons = {{"None", "0"}, {"Attack2H", "38"}, {"ParryUnarmed", "39"}, {"ParryShield", "43"},
-                         {"ReadyUnarmed", "44"}, {"Ready1H", "45"}, {"ReadyBow", "48"}, {"SpellCast", "51"},
-                         {"Battleroar", "53"}, {"SpecialAttack1H", "54"}, {"Kick", "60"}, {"AttackThrow", "61"},
-                         {"Stun", "64"}, {"Salute", "66"}, {"UseStand", "69"}, {"CheerArmed", "71"}, {"EatArmed", "92"},
-                         {"StunArmed", "93"}, {"Dance", "94"}, {"SaluteArmed", "113"}, {"UseArmed", "133"},
-                         {"LaughArmed", "153"}, {"WorkArmed", "173"}, {"ReadyRifle", "213"}, {"MineArmed", "233"},
-                         {"ChopArmed", "234"}, {"GolfClap", "253"}, {"Yes", "273"}, {"No", "274"}, {"Train", "275"},
-                         {"Ready1H", "333"}, {"AtEase", "313"}, {"SpellKneel", "353"}}
+        local buttons = { { "None", "0" }, { "Attack2H", "38" }, { "ParryUnarmed", "39" }, { "ParryShield", "43" },
+            { "ReadyUnarmed", "44" }, { "Ready1H", "45" }, { "ReadyBow", "48" }, { "SpellCast", "51" },
+            { "Battleroar", "53" }, { "SpecialAttack1H", "54" }, { "Kick", "60" }, { "AttackThrow", "61" },
+            { "Stun",       "64" }, { "Salute", "66" }, { "UseStand", "69" }, { "CheerArmed", "71" },
+            { "EatArmed", "92" },
+            { "StunArmed",  "93" }, { "Dance", "94" }, { "SaluteArmed", "113" }, { "UseArmed", "133" },
+            { "LaughArmed", "153" }, { "WorkArmed", "173" }, { "ReadyRifle", "213" }, { "MineArmed", "233" },
+            { "ChopArmed", "234" }, { "GolfClap", "253" }, { "Yes", "273" }, { "No", "274" }, { "Train", "275" },
+            { "Ready1H",   "333" }, { "AtEase", "313" }, { "SpellKneel", "353" } }
         for k, v in pairs(buttons) do
             info.text = v[1]
             info.value = v[2]
@@ -2178,21 +2185,21 @@ function MangAdmin:InitDropDowns()
         local level = 1
         local info = UIDropDownMenu_CreateInfo()
         local buttons = { --      {"Ceský","csCZ"},
-        --      {"Deutsch","deDE"},
-        --      {"Dutch","nlNL"},
-        {"English", "enUS"}, --      {"Spanish","esES"},
-        {"繁體中文", "zhTW"} --      {"Finnish","fiFI"},
-        --      {"Français","frFR"},
-        --      {"Magyar","huHU"},
-        --      {"Italiano","itIT"},
-        --      {"Lithuanian","liLI"},
-        --      {"Polski","plPL"},
-        --      {"Portuguese","ptPT"},
-        --      {"Romanian","roRO"},
-        --      {"Russkiy","ruRU"},
-        --      {"Svenska","svSV"},
-        --      {"Chinese","zhCN"},
-        --      {"Bulgarian", "buBU"}
+            --      {"Deutsch","deDE"},
+            --      {"Dutch","nlNL"},
+            { "English",      "enUS" }, --      {"Spanish","esES"},
+            { "繁體中文", "zhTW" }  --      {"Finnish","fiFI"},
+            --      {"Français","frFR"},
+            --      {"Magyar","huHU"},
+            --      {"Italiano","itIT"},
+            --      {"Lithuanian","liLI"},
+            --      {"Polski","plPL"},
+            --      {"Portuguese","ptPT"},
+            --      {"Romanian","roRO"},
+            --      {"Russkiy","ruRU"},
+            --      {"Svenska","svSV"},
+            --      {"Chinese","zhCN"},
+            --      {"Bulgarian", "buBU"}
         }
         for k, v in pairs(buttons) do
             info.text = v[1]
@@ -2363,8 +2370,8 @@ function MangAdmin:NoResults(var)
 end
 
 function PopupScrollUpdate()
-    local line -- 1 through 7 of our window to scroll
-    local lineplusoffset -- an index into our data calculated from the scroll offset
+    local line                                                                    -- 1 through 7 of our window to scroll
+    local lineplusoffset                                                          -- an index into our data calculated from the scroll offset
     if MangAdmin.db.char.requests.item or MangAdmin.db.char.requests.favitem then -- get items
         local count = 0
         if MangAdmin.db.char.requests.item then
@@ -2630,7 +2637,7 @@ function PopupScrollUpdate()
             ma_lookupresulttext:SetText(Locale["label_searchResults"] .. count)
             FauxScrollFrame_Update(ma_PopupScrollBar, count, 7, 30);
             for line = 1, 7 do
-                getglobal("ma_PopupScrollBarEntryIcon" .. line):Hide()
+                getglobal("ma_PopupScrollBarEntryIcon" .. line) :Hide()
                 lineplusoffset = line + FauxScrollFrame_GetOffset(ma_PopupScrollBar)
                 if lineplusoffset <= count then
                     local creature
@@ -2640,7 +2647,7 @@ function PopupScrollUpdate()
                         creature = MangAdmin.db.account.favorites.creatures[lineplusoffset]
                     end
                     local key = lineplusoffset
-                    getglobal("ma_PopupScrollBarEntry" .. line):SetText(
+                    getglobal("ma_PopupScrollBarEntry" .. line) :SetText(
                         "Id: |cffffffff" .. creature["crId"] .. "|r Name: |cffffffff" .. creature["crName"] .. "|r")
                     getglobal("ma_PopupScrollBarEntry" .. line):SetScript("OnClick", function()
                         MangAdmin:Creature(creature["crId"], arg1)
@@ -3027,7 +3034,7 @@ function pairsByKeys(t, f)
             table.insert(a, n)
         end
         table.sort(a, f)
-        local i = 0 -- iterator variable
+        local i = 0             -- iterator variable
         local iter = function() -- iterator function
             i = i + 1
             if a[i] == nil then
