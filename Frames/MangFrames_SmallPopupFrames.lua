@@ -18,89 +18,89 @@
 -- This script must be listed in the .toc after "MangFrames_LookupButtons.lua"
 -- Also some variables are globally taken from MangAdmin.lua
 function MangAdmin:CreateSmallPopupFrames()
-  local transparency = {
-    bg = MangAdmin.db.account.style.transparency.backgrounds,
-    btn = MangAdmin.db.account.style.transparency.buttons,
-    frm = MangAdmin.db.account.style.transparency.frames
-  }
-  local color = {
-    bg = MangAdmin.db.account.style.color.backgrounds,
-    btn = MangAdmin.db.account.style.color.buttons,
-    frm = MangAdmin.db.account.style.color.frames
-  }
-
-  -- [[popup2 Frame]]
-  FrameLib:BuildFrame({
-    name = "ma_popup2frame",
-    group = "popup2",
-    parent = UIParent,
-    texture = {
-      color = { color.bg.r, color.bg.g, color.bg.b, transparency.bg }
-    },
-    draggable = true,
-    size = {
-      width = 160,
-      height = 260
-    },
-    setpoint = {
-      pos = "CENTER"
-    },
-    frameStrata = "HIGH",
-    inherits = nil
-  })
-
-  FrameLib:BuildFrame({
-    name = "ma_popup2cframe",
-    group = "popup2",
-    parent = ma_popup2frame,
-    texture = {
-      color = { color.frm.r, color.frm.g, color.frm.b, transparency.frm }
-    },
-    size = {
-      width = 156,
-      height = 256
-    },
-    setpoint = {
-      pos = "TOPLEFT",
-      offY = -2,
-      offX = 2
-    },
-    inherits = nil
-  })
-
-  FrameLib:BuildButton({   -- Close Window button
-    name = "ma_popup2closebutton",
-    group = "popup2",
-    parent = ma_popup2cframe,
-    texture = {
-      name = "ma_popup2closebutton_texture",
-      color = { color.btn.r, color.btn.g, color.btn.b, transparency.btn }
-    },
-    size = {
-      width = 10,
-      height = 10
-    },
-    setpoint = {
-      pos = "TOPRIGHT",
-      offX = -10,
-      offY = -10
-    },
-    text = Locale["label_closeWindowButton"]     -- "X"
-  })
-
-  FrameLib:BuildFontString({
-    name = "ma_tpinfo_text",
-    group = "popup2",
-    parent = ma_popup2cframe,
-    text = "You should not see this text!",
-    setpoint = {
-      pos = "TOPLEFT",
-      offX = 10,
-      offY = -20
+    local transparency = {
+        bg = MangAdmin.db.account.style.transparency.backgrounds,
+        btn = MangAdmin.db.account.style.transparency.buttons,
+        frm = MangAdmin.db.account.style.transparency.frames
     }
-  })
-  -- popup2 Search ScrollFrame
-  --[[FrameLib:BuildFrame({
+    local color = {
+        bg = MangAdmin.db.account.style.color.backgrounds,
+        btn = MangAdmin.db.account.style.color.buttons,
+        frm = MangAdmin.db.account.style.color.frames
+    }
+
+    -- [[popup2 Frame]]
+    FrameLib:BuildFrame({
+        name = "ma_popup2frame",
+        group = "popup2",
+        parent = UIParent,
+        texture = {
+            color = {color.bg.r, color.bg.g, color.bg.b, transparency.bg}
+        },
+        draggable = true,
+        size = {
+            width = 160,
+            height = 260
+        },
+        setpoint = {
+            pos = "CENTER"
+        },
+        frameStrata = "HIGH",
+        inherits = nil
+    })
+
+    FrameLib:BuildFrame({
+        name = "ma_popup2cframe",
+        group = "popup2",
+        parent = ma_popup2frame,
+        texture = {
+            color = {color.frm.r, color.frm.g, color.frm.b, transparency.frm}
+        },
+        size = {
+            width = 156,
+            height = 256
+        },
+        setpoint = {
+            pos = "TOPLEFT",
+            offY = -2,
+            offX = 2
+        },
+        inherits = nil
+    })
+
+    FrameLib:BuildButton({ -- Close Window button
+        name = "ma_popup2closebutton",
+        group = "popup2",
+        parent = ma_popup2cframe,
+        texture = {
+            name = "ma_popup2closebutton_texture",
+            color = {color.btn.r, color.btn.g, color.btn.b, transparency.btn}
+        },
+        size = {
+            width = 10,
+            height = 10
+        },
+        setpoint = {
+            pos = "TOPRIGHT",
+            offX = -10,
+            offY = -10
+        },
+        text = Locale["label_closeWindowButton"] -- "X"
+    })
+
+    FrameLib:BuildFontString({
+        name = "ma_tpinfo_text",
+        group = "popup2",
+        parent = ma_popup2cframe,
+        text = "You should not see this text!",
+        setpoint = {
+            pos = "TOPLEFT",
+            offX = 10,
+            offY = -20
+        }
+    })
+    -- popup2 Search ScrollFrame
+    --[[FrameLib:BuildFrame({
     type = "ScrollFrame",
     name = "ma_popup2ScrollBar",
     group = "popup2",

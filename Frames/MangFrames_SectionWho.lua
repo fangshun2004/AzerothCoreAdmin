@@ -19,7 +19,7 @@
 -- This script must be listed in the .toc after "MangFrames_SectionTicket.lua"
 -- Also some variables are globally taken from MangAdmin.lua
 
-function MangAdmin:CreateWhoSection()
+function MangAdmin: CreateWhoSection()
   local transparency = {
     bg = MangAdmin.db.account.style.transparency.backgrounds,
     btn = MangAdmin.db.account.style.transparency.buttons,
