@@ -2181,7 +2181,7 @@ function MangAdmin:InitDropDowns()
         --      {"Deutsch","deDE"},
         --      {"Dutch","nlNL"},
         {"English", "enUS"}, --      {"Spanish","esES"},
-        {"繁體中文", "zhTW"} --      {"Finnish","fiFI"},
+        --      {"Finnish","fiFI"},
         --      {"Français","frFR"},
         --      {"Magyar","huHU"},
         --      {"Italiano","itIT"},
@@ -2192,7 +2192,7 @@ function MangAdmin:InitDropDowns()
         --      {"Russkiy","ruRU"},
         --      {"Svenska","svSV"},
         --      {"Chinese","zhCN"},
-        --      {"Bulgarian", "buBU"}
+        {"繁體中文", "zhTW"} --      {"Bulgarian", "buBU"}
         }
         for k, v in pairs(buttons) do
             info.text = v[1]

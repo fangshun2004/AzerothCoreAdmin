@@ -17,7 +17,7 @@ GENERICS_command = "command"
 GENERICS_message = "message"
 
 -- Spells Keys
---General
+-- General
 cheatExploreMapsCommand = "cheatExploreMaps"
 -- GM
 GM_displayAccountGMLevelCommand = "displayAccountLevel"
@@ -60,7 +60,7 @@ GM_playerSpeedCommand = "playerSpeed"
 GM_playerScaleCommand = "playerScale"
 GM_AllianceJailCommand = "allianceJail"
 GM_HordeJailCommand = "hordeJail"
---CHAR
+-- CHAR
 CHAR_reviveCommand = "revive"
 CHAR_saveCommand = "save"
 CHAR_kickCommand = "kick"

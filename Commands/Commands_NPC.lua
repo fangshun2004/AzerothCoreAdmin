@@ -186,7 +186,6 @@ function NPCComeToMe()
     local npccname = ma_npccharactertarget:GetText()
     MangAdmin:ChatMsg(".cometome 1")
     MangAdmin:LogAction("Forced " .. npccname .. " using ComeToMe")
-
 end
 
 function DisplayUP()
@@ -195,6 +194,7 @@ function DisplayUP()
     ma_npcdisplayid:SetText(currentid)
     MangAdmin:ChatMsg(".npc set model " .. currentid)
 end
+
 function DisplayDown()
     local currentid = ma_npcdisplayid:GetText()
     currentid = currentid - 1
@@ -231,20 +231,18 @@ function NPCModelZoomOut()
     -- ma_modelframe:SetModelScale(ma_modelframe:GetModelScale() * .5)
     -- ma_modelframe:SetPosition(0,0,0)
     -- ma_modelframe:RefreshUnit()
-
 end
 
 function NPCPossess()
     local player = UnitName("target") or UnitName("player")
     MangAdmin:ChatMsg(".possess")
     MangAdmin:LogAction("Possessed " .. player)
-
 end
+
 function NPCUnPossess()
     local player = UnitName("target") or UnitName("player")
     MangAdmin:ChatMsg(".unpossess")
     MangAdmin:LogAction("UnPossessed " .. player)
-
 end
 
 function NPCFreeze()

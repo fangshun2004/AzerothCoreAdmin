@@ -161,7 +161,7 @@
     },
     [CHAR_repairItemsCommand] = {
         [GENERICS_isTargetCheckNeeded] = true,
-        [GENERICS_command] = ".repairitems",
+        [GENERICS_command] = ".gear repair",
         [GENERICS_message] = "logCHAR_repairItems"
     },
     [CHAR_banCommand] = {
