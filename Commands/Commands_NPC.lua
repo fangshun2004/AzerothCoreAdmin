@@ -93,7 +93,7 @@ end
 
 function NPCDemorph()
     local player = UnitName("target") or UnitName("player")
-    MangAdmin:ChatMsg(".demorph")
+    MangAdmin:ChatMsg(".morph reset")
     MangAdmin:LogAction("Demorphed player " .. player .. ".")
 end
 
@@ -131,35 +131,35 @@ function NPCGo()
 end
 
 function NPCMorph()
-    local cname = ma_charactertarget:GetText()
+    local cname = ma_npcdisplayid:GetText()
     local npccname = ma_npccharactertarget:GetText()
-    MangAdmin:ChatMsg(".modify morph " .. npccname)
-    MangAdmin:LogAction(".modify morph " .. npccname .. ".")
+    MangAdmin:ChatMsg(".morph target " .. npccname)
+    MangAdmin:LogAction(".modify target " .. npccname .. ".")
 end
 
 function NPCSay()
-    local cname = ma_charactertarget:GetText()
+    local cname = ma_npcdisplayid:GetText()
     local npccname = ma_npccharactertarget:GetText()
     MangAdmin:ChatMsg(".npc say " .. npccname)
     MangAdmin:LogAction(".npc say " .. npccname .. ".")
 end
 
 function NPCYell()
-    local cname = ma_charactertarget:GetText()
+    local cname = ma_npcdisplayid:GetText()
     local npccname = ma_npccharactertarget:GetText()
     MangAdmin:ChatMsg(".npc yell " .. npccname)
     MangAdmin:LogAction(".npc yell " .. npccname .. ".")
 end
 
 function NPCAura()
-    local cname = ma_charactertarget:GetText()
+    local cname = ma_npcdisplayid:GetText()
     local npccname = ma_npccharactertarget:GetText()
     MangAdmin:ChatMsg(".aura " .. npccname)
     MangAdmin:LogAction(".aura " .. npccname .. ".")
 end
 
 function NPCUnaura()
-    local cname = ma_charactertarget:GetText()
+    local cname = ma_npcdisplayid:GetText()
     local npccname = ma_npccharactertarget:GetText()
     MangAdmin:ChatMsg(".unaura " .. npccname)
     MangAdmin:LogAction(".unaura " .. npccname .. ".")
