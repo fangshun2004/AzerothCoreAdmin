@@ -577,21 +577,26 @@ end
 
 -- RESET
 function ResetDropDownInitialize()
-    local level = 1
-    local info = UIDropDownMenu_CreateInfo()
-    local buttons = {{Locale["labelCHAR_resetHonorOption"], "honor"}, {Locale["labelCHAR_resetLevelOption"], "level"},
-                     {Locale["labelCHAR_resetSpellsOption"], "spells"}, {Locale["labelCHAR_resetStatsOption"], "stats"},
-                     {Locale["labelCHAR_resetTalentsOption"], "talents"}}
-    for k, v in pairs(buttons) do
-        info.text = v[1]
-        info.value = v[2]
-        info.func = function()
-            UIDropDownMenu_SetSelectedValue(CHAR_resetDropdown, this.value)
+    if commandTargetCheck() then
+        local player = UnitName("target") or UnitName("player")
+        local level = 1
+        local info = UIDropDownMenu_CreateInfo()
+        local buttons = {{Locale["labelCHAR_resetHonorOption"], "honor" .. player},
+                         {Locale["labelCHAR_resetLevelOption"], "level " .. player},
+                         {Locale["labelCHAR_resetSpellsOption"], "spells"},
+                         {Locale["labelCHAR_resetStatsOption"], "stats" .. player},
+                         {Locale["labelCHAR_resetTalentsOption"], "talents" .. player}}
+        for k, v in pairs(buttons) do
+            info.text = v[1]
+            info.value = v[2]
+            info.func = function()
+                UIDropDownMenu_SetSelectedValue(CHAR_resetDropdown, this.value)
+            end
+            info.checked = nil
+            info.icon = nil
+            info.keepShownOnClick = nil
+            UIDropDownMenu_AddButton(info, level)
         end
-        info.checked = nil
-        info.icon = nil
-        info.keepShownOnClick = nil
-        UIDropDownMenu_AddButton(info, level)
+        UIDropDownMenu_SetSelectedValue(CHAR_resetDropdown, "honor")
     end
-    UIDropDownMenu_SetSelectedValue(CHAR_resetDropdown, "honor")
 end
